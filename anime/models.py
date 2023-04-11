@@ -2,6 +2,8 @@ from django.db import models
 
 # Create your models here.
 
+from wagtail.api import APIField
+
 from wagtail.models import Page
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
@@ -24,4 +26,10 @@ class AnimePage(Page):
         FieldPanel('anime_title'),
         FieldPanel('anime_description'),
         # FieldPanel('tags', classname="full"),
+    ]
+
+    api_fields = [
+        APIField("anime_banner_img"),
+        APIField("anime_title"),
+        APIField("anime_description"),
     ]
